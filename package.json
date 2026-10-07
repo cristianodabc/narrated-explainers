@@ -1,0 +1,16 @@
+{
+  "name": "narrated-explainers",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node bin/explainer.mjs setup",
+    "make": "node bin/explainer.mjs make",
+    "draft": "node bin/explainer.mjs draft",
+    "render": "node bin/explainer.mjs render",
+    "prompt": "node bin/explainer.mjs prompt",
+    "test": "node --test"
+  },
+  "engines": {"node": ">=20"},
+  "license": "MIT"
+}

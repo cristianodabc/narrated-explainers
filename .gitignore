@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.venv/
+models/
+videos/
+node_modules/
+.DS_Store

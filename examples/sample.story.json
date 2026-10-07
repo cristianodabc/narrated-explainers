@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "slug": "sample-workflow",
+  "title": "A Durable Workflow",
+  "scenes": [
+    {
+      "title": "What is a durable workflow?",
+      "narration": "A durable workflow is a series of steps that can recover after a process stops. It remembers what happened, then continues from a known point.",
+      "caption": "Remember progress. Continue safely.",
+      "visual": {"type": "intro", "labels": ["Request", "Journal", "Worker"]}
+    },
+    {
+      "title": "A simple order",
+      "narration": "Imagine an order that reserves stock, charges a card, and sends a receipt. Each step has a result worth keeping.",
+      "caption": "One order, several steps.",
+      "visual": {"type": "flow", "labels": ["Reserve", "Charge", "Receipt"]}
+    },
+    {
+      "title": "When something fails",
+      "narration": "Suppose the payment service times out. The workflow can inspect its recorded state and retry only the work that still needs doing.",
+      "caption": "Recorded state guides recovery.",
+      "visual": {"type": "focus", "labels": ["Timeout", "Inspect", "Retry"]}
+    },
+    {
+      "title": "The design tradeoff",
+      "narration": "A retry might run a step twice. So the payment operation needs an idempotency key, and the system needs a clear rule for uncertain outcomes.",
+      "caption": "Retries need safe operations.",
+      "visual": {"type": "cards", "labels": ["Retry", "Idempotency", "Check state"]}
+    },
+    {
+      "title": "The useful idea",
+      "narration": "Durability comes from remembering progress and designing each step for recovery. The workflow is only as reliable as its external effects.",
+      "caption": "Design recovery into the steps.",
+      "visual": {"type": "summary", "labels": ["Record", "Resume", "Verify"]}
+    }
+  ]
+}
