@@ -11,6 +11,6 @@
     "prompt": "node bin/explainer.mjs prompt",
     "test": "node --test"
   },
-  "engines": {"node": ">=20"},
+  "engines": {"node": ">=22"},
   "license": "MIT"
 }

@@ -1,10 +1,18 @@
 # Narrated Explainers
 
+[![CI](https://github.com/cristianodabc/narrated-explainers/actions/workflows/ci.yml/badge.svg)](https://github.com/cristianodabc/narrated-explainers/actions/workflows/ci.yml)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Node.js 22+](https://img.shields.io/badge/Node.js-22%2B-339933.svg)](package.json)
+
 Make a documentary-style whiteboard explainer from a topic and your LLM. The LLM writes a structured script. A fixed local renderer draws 1080p animation, narrates it with Kokoro's `af_heart` voice, and exports an H.264/AAC MP4. The visual style, voice, pacing, and export settings are the same for every video.
+
+```text
+Topic + brief → LLM (HTTP) → story.json → local SVG + Kokoro renderer → MP4
+```
 
 ## Quick start
 
-Requirements: Node.js 20+, Python 3.11 via [`uv`](https://docs.astral.sh/uv/), FFmpeg (including `ffprobe`), and `rsvg-convert` (librsvg). On macOS with Homebrew: `brew install uv ffmpeg librsvg`.
+Requirements: Node.js 22+, Python 3.11 via [`uv`](https://docs.astral.sh/uv/), FFmpeg (including `ffprobe`), and `rsvg-convert` (librsvg). On macOS with Homebrew: `brew install uv ffmpeg librsvg`.
 
 ```bash
 npm run setup
@@ -39,7 +47,7 @@ npm run render -- --story story.json
 
 See [the sample story](examples/sample.story.json) for the schema. Every video has 5–10 scenes. Each scene has spoken narration, a short title and caption, and three labels for one of five layouts: `intro`, `flow`, `cards`, `focus`, or `summary`. The first scene must introduce the subject using `intro`; the last uses `summary`. The renderer accepts data only, so an LLM cannot inject rendering code.
 
-Run `npm test` for schema and LLM boundary tests. Run `npm run render -- --story examples/sample.story.json` for an end-to-end sample.
+Run `npm test` for schema, LLM, CLI, and SVG raster tests. CI runs these without API credentials or a voice model download. Run `npm run render -- --story examples/sample.story.json` for an end-to-end sample with narration.
 
 ## Output settings
 
